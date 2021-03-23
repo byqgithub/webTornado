@@ -1,0 +1,55 @@
+[general]
+version = "1.0.0"
+port = 8899
+debug = true # tornado server debug model
+compress_response = true
+xsrf_cookies = true
+cookie_secret = "kjsdhfweiofjhewnfiwehfneiwuhniuadfadfdfd"
+login_url = "/auth/login"
+template_path = "templates"
+static_path = "static"
+
+[log]
+log_level = "debug"
+# log_console = "debug"
+log_file_path = "logs/log"  # 日志存储路径
+when = "D"                  # 以什么单位分割文件
+interval = 1                # 以上面的时间单位，隔几个单位分割文件
+max_size = 500              # 单日志文件最大字节数(单位: M)
+backupCount = 30            # 保留多少历史记录文件
+rotate_mode = "size"        # 日志回滚模式
+format = ""                 # 日志输出格式
+
+[session]
+# redis
+db_no=0
+host="127.0.0.1"
+port=6379
+password = ""
+max_connections=10
+session_key_name = "TR_SESSION_ID"
+
+[cookie]
+session_key_name = "TR_SESSION_ID"
+uv_key_name = "uv_tag"
+
+[sql]
+# mysql
+engine = ""
+engine_url = "mysql+mysqldb://root:1qaz2wsx@localhost:3306/blog_xtg?charset=utf8"
+
+[cache]
+# redis
+db_no=1
+host="127.0.0.1"
+port=6379
+password = ""
+max_connections=10
+
+[pub_sub]
+# redis
+host="127.0.0.1"
+port=6379
+password = ""
+autoconnect = true
+channels = ["site_cache_message_channel"]
